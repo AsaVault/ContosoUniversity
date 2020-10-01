@@ -145,21 +145,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Logging\Ilogger.cs" />
-    <Compile Include="Migrations\202009230925552_InitialCreate.cs" />
-    <Compile Include="Migrations\202009230925552_InitialCreate.designer.cs">
-      <DependentUpon>202009230925552_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009300437341_Initial.cs" />
-    <Compile Include="Migrations\202009300437341_Initial.designer.cs">
-      <DependentUpon>202009300437341_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009300457322_MaxLengthOnNames.cs" />
-    <Compile Include="Migrations\202009300457322_MaxLengthOnNames.designer.cs">
-      <DependentUpon>202009300457322_MaxLengthOnNames.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009300501130_ColumnFirstName.cs" />
-    <Compile Include="Migrations\202009300501130_ColumnFirstName.designer.cs">
-      <DependentUpon>202009300501130_ColumnFirstName.cs</DependentUpon>
+    <Compile Include="Migrations\202010010950308_ComplexDataModel.cs" />
+    <Compile Include="Migrations\202010010950308_ComplexDataModel.designer.cs">
+      <DependentUpon>202010010950308_ComplexDataModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Course.cs" />
@@ -231,17 +219,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202009230925552_InitialCreate.resx">
-      <DependentUpon>202009230925552_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009300437341_Initial.resx">
-      <DependentUpon>202009300437341_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009300457322_MaxLengthOnNames.resx">
-      <DependentUpon>202009300457322_MaxLengthOnNames.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009300501130_ColumnFirstName.resx">
-      <DependentUpon>202009300501130_ColumnFirstName.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202010010950308_ComplexDataModel.resx">
+      <DependentUpon>202010010950308_ComplexDataModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
