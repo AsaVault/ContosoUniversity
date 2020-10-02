@@ -99,7 +99,12 @@ namespace ContosoUniversity.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Instructor instructor = db.Instructors.Find(id);
+            // Previous code
+            //Instructor instructor = db.Instructors.Find(id);
+            Instructor instructor = db.Instructors
+                                        .Include(i => i.OfficeAssignment)
+                                        .Where(i => i.ID == id)
+                                        .Single();
             if (instructor == null)
             {
                 return HttpNotFound();
