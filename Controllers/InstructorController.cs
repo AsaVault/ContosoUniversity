@@ -104,8 +104,10 @@ namespace ContosoUniversity.Controllers
             //Instructor instructor = db.Instructors.Find(id);
             Instructor instructor = db.Instructors
                                         .Include(i => i.OfficeAssignment)
+                                        .Include(i => i.Courses)
                                         .Where(i => i.ID == id)
                                         .Single();
+            PopulateAssignedCourseData(instructor);
             if (instructor == null)
             {
                 return HttpNotFound();
