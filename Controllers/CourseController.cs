@@ -40,7 +40,7 @@ namespace ContosoUniversity.Controllers
         // GET: Course/Create
         public ActionResult Create()
         {
-           // PopulateDepartmentsDropDownList();
+            PopulateDepartmentsDropDownList();
             return View();
         }
 
