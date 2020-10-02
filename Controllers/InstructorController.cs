@@ -121,7 +121,7 @@ namespace ContosoUniversity.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public ActionResult EditPost(int? id)
+        public ActionResult Edit(int? id, string[] selectedCourses)
         {
             if (id == null)
             {
@@ -129,6 +129,7 @@ namespace ContosoUniversity.Controllers
             }
             var instructorToUpdate = db.Instructors
                .Include(i => i.OfficeAssignment)
+               .Include(i => i.Courses)
                .Where(i => i.ID == id)
                .Single();
 
@@ -142,6 +143,8 @@ namespace ContosoUniversity.Controllers
                         instructorToUpdate.OfficeAssignment = null;
                     }
 
+                    UpdateInstructorCourses(selectedCourses, instructorToUpdate);
+
                     db.SaveChanges();
 
                     return RedirectToAction("Index");
@@ -152,6 +155,7 @@ namespace ContosoUniversity.Controllers
                     ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
                 }
             }
+            PopulateAssignedCourseData(instructorToUpdate);
             return View(instructorToUpdate);
         }
 
