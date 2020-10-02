@@ -179,6 +179,24 @@ namespace ContosoUniversity.Controllers
             return RedirectToAction("Index");
         }
 
+        // Added PopulateAssignedCourseData
+        private void PopulateAssignedCourseData(Instructor instructor)
+        {
+            var allCourses = db.Courses;
+            var instructorCourses = new HashSet<int>(instructor.Courses.Select(c => c.CourseID));
+            var viewModel = new List<AssignedCourseData>();
+            foreach (var course in allCourses)
+            {
+                viewModel.Add(new AssignedCourseData
+                {
+                    CourseID = course.CourseID,
+                    Title = course.Title,
+                    Assigned = instructorCourses.Contains(course.CourseID)
+                });
+            }
+            ViewBag.Courses = viewModel;
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
