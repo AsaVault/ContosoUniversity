@@ -40,7 +40,7 @@ namespace ContosoUniversity.Controllers
         // GET: Course/Create
         public ActionResult Create()
         {
-            ViewBag.DepartmentID = new SelectList(db.Departments, "DepartmentID", "Name");
+           // PopulateDepartmentsDropDownList();
             return View();
         }
 
@@ -119,6 +119,14 @@ namespace ContosoUniversity.Controllers
             db.Courses.Remove(course);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        private void PopulateDepartmentsDropDownList(object selectedDepartment = null)
+        {
+            var departmentsQuery = from d in db.Departments
+                                   orderby d.Name
+                                   select d;
+            ViewBag.DepartmentID = new SelectList(departmentsQuery, "DepartmentID", "Name", selectedDepartment);
         }
 
         protected override void Dispose(bool disposing)
